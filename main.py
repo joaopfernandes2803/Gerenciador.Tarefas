@@ -11,7 +11,7 @@ if __name__ == '__main__':
         print('2 - Listar tarefas')
         print('3 - Marca tarefa')
         print(f'4 - Remover tarefa')
-        print('6 - Sair')
+        print('5 - Sair')
 
         opcao = input('Escolha: ')
 
@@ -23,8 +23,9 @@ if __name__ == '__main__':
             sistema.marca_tarefa()
         elif opcao == '4':
             sistema.remover_tarefa()
-        elif opcao == '6':
-            print('Encerrando o sistema...')
+        elif opcao == '5':
+            sistema.salvar_tarefas()
+            print('Tarefas salvas. Saindo...')
             break
         else:
             print('Opção inválida!')

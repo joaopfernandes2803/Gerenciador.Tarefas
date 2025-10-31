@@ -1,6 +1,9 @@
+from SistemaGerenciador.Arquivo.manipulador_arquivo import salvar_tarefas, carregar_tarefas
+
 class Lista:
     def __init__(self):
         self.lista = []
+        carregar_tarefas(self)
 
     def adicionar_tarefas(self):
         adicionar = input('Adicionar tarefa\n-> ')
@@ -25,7 +28,7 @@ class Lista:
 
         marcar = int(input('Digite o número da tarefa a marcar como concluída\n-> '))
         self.lista[marcar-1] = f'[✅]{self.lista[marcar-1]}'
-        print(f'Tarefa{self.lista[marcar-1]}  marcada como concluída.')
+        print(f"Tarefa '{self.lista[marcar - 1]}' marcada como concluída.")
 
     def remover_tarefa(self):
         if not self.lista:
@@ -39,5 +42,5 @@ class Lista:
             tarefa_removida = self.lista.pop(remover-1)
             print(f'{tarefa_removida} foi removido da lista.')
 
-    def salvar_carregar_tarefas(self):
-        pass
+    def salvar_tarefas(self):
+        salvar_tarefas(self)
