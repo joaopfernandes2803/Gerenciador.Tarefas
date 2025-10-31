@@ -25,7 +25,7 @@ if __name__ == '__main__':
             sistema.remover_tarefa()
         elif opcao == '5':
             sistema.salvar_tarefas()
-            print('Tarefas salvas. Saindo...')
+            print('Saindo...')
             break
         else:
             print('Opção inválida!')
