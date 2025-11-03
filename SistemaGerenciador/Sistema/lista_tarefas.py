@@ -25,10 +25,14 @@ class Lista:
             print('\nSuas tarefas:')
             for i, tarefa in enumerate(self.lista, start=1):
                 print(f'{i}. {tarefa}')
-
-        marcar = int(input('Digite o número da tarefa a marcar como concluída\n-> '))
-        self.lista[marcar-1] = f'[✅]{self.lista[marcar-1]}'
-        print(f"Tarefa '{self.lista[marcar - 1]}' marcada como concluída.")
+            while True:
+                try:
+                    marcar = int(input('Digite o número da tarefa a marcar como concluída\n-> '))
+                    self.lista[marcar-1] = f'[✅] {self.lista[marcar-1]}'
+                    print(f"\nTarefa '{self.lista[marcar - 1]}' marcada como concluída.")
+                    break
+                except (ValueError, IndexError):
+                    print('Erro: Digite um número válido entre 1 e', len(self.lista))
 
     def remover_tarefa(self):
         if not self.lista:
@@ -37,10 +41,17 @@ class Lista:
             print('\nSuas tarefas:')
             for i, tarefa in enumerate(self.lista, start=1):
                 print(f'{i}. {tarefa}')
-        remover = int(input('Digite o número da tarefa a ser removida\n-> '))
-        if 1<= remover <= len(self.lista):
-            tarefa_removida = self.lista.pop(remover-1)
-            print(f'{tarefa_removida} foi removido da lista.')
+            while True:
+                try:
+                    remover = int(input('Digite o número da tarefa a ser removida\n-> '))
+                    if 1<= remover <= len(self.lista):
+                        tarefa_removida = self.lista.pop(remover-1)
+                        print(f'{tarefa_removida} foi removida da lista.')
+                        break
+                    else:
+                        print('Erro: Digite um número válido entre 1 e', len(self.lista))
+                except (ValueError, IndexError):
+                    print('Erro: Digite um número válido entre 1 e', len(self.lista))
 
-    def salvar_tarefas(self):
+    def salvar(self):
         salvar_tarefas(self)

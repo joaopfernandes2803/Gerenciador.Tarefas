@@ -24,7 +24,7 @@ if __name__ == '__main__':
         elif opcao == '4':
             sistema.remover_tarefa()
         elif opcao == '5':
-            sistema.salvar_tarefas()
+            sistema.salvar()
             print('Saindo...')
             break
         else:
